@@ -1,4 +1,6 @@
 //REGEX file
+
+//documentation/instruction: https://www.javaworld.com/article/3188545/learn-java/java-101-regular-expressions-in-java-part-1.html
  //asks user for what they want
   /*
   ! = UNIQUE identifier for note
@@ -7,14 +9,16 @@
 # = denotes a topic addressed in the note
 [keywords] = "vocab words," or common words within a note
   */
-  []
+
 
 public class REGEX_class {  // class declaration
     
     
     //we need to have a constructor
     
-    public REGEX_class { //constructor
+    public REGEX_class { //constructor?
+    
+    
         
         
         
@@ -29,6 +33,7 @@ public class REGEX_class {  // class declaration
     
     
     public void mentions { //@mentions function
+        
         
         
         

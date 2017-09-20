@@ -19,3 +19,4 @@ Important things 2 note:
 -We want to make the program general enough so that we can point to a directory and have all of the files from the directory parsed through
 -We want to have different functions in the REGEX class that denote different things
 -We need to explain what we have coded both in our comments as well as in the READ me - so that it is easier to read
+-we might need to make a function for reg ex in our main and then multiple classes just for regex
