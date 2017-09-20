@@ -40,8 +40,10 @@ searchWord=keyboard.nextLine();//idk why this has to be there but it skips the s
 switch (mention_option) {
             
             case 1:  
-            addedCharacter = "!";
-            System.out.print("1. What unique indentifier would you look like to search for? ");
+            
+            System.out.print("1. What unique indentifier would you look like to search for? (!,*,?,_etc.) ");
+            addedCharacter=keyboard.nextLine();
+             System.out.print("2. What keyword would you look like to search for? ");
             searchWord=keyboard.nextLine();
             searchWord=searchWord+addedCharacter;
             break;
@@ -88,18 +90,70 @@ System.out.print("(2) Would you like to look for a keyword");
  
  public static void searchinFile(String userWord){
     
+    /*
     
+    1. Intialize a fle array
+    2. Ask for the first file
+    3. 
+    
+    
+    
+    
+    */
      // The name of the file to open.
-        String fileName = "kimktweets.txt";
+     //string filename = "";
+     String [] filenamearray = new String[10];
+        Scanner keyboard = new Scanner(System.in);
+        
+        //while? while the file name array = 0
+        //while loop here to ask the user to enter all the files they want 
+    
+       int i=0;
+        //i = the number of elements in array
+        System.out.print("What is the filename you would like to search through?");//keep this here
+        filenamearray[i]=keyboard.nextLine();//keep
+        String addfile= "";
+        //i=1?
+       
+        do{
+          
+          
+          
+          
+         //while there is only one element in the appended string array
+         
+        // https://stackoverflow.com/questions/2843366/how-to-add-new-elements-to-an-array -- array append documentation
+         
+        System.out.print("Would you like to add another file?");
+        addfile=keyboard.nextLine();
+        
+        if(addfile.equals("yes")){
+         i++;   
+         
+         
+        System.out.print("What is the filename you would like to search through?");//keep this here
+        filenamearray[i]=keyboard.nextLine();}
+        
+        else if(addfile.equals("no")){
+            break;
+        }
+            
+        
+        
+            
+        }while(!addfile.equals("no"));
+
         int totalMentions=0;
 
         // This will reference one line at a time
         String line = null;
 
+
+            //for loop here because the for loop will iterate through the amount of files the user wants
         try {
             // FileReader reads text files in the default encoding.
             FileReader fileReader = 
-                new FileReader(fileName);
+                new FileReader(filenamearray[0]);
 
             // Always wrap FileReader in BufferedReader.
             BufferedReader bufferedReader = 
@@ -117,7 +171,7 @@ System.out.print("(2) Would you like to look for a keyword");
                
                
             }
-            System.out.println("There were " +totalMentions+ " occurances of " + userWord +" in Kim K's twitter feed.");
+            System.out.println("There were " +totalMentions+ " occurances of " + userWord +" in " +filenamearray[0]);
 
             // Always close files.
             bufferedReader.close();         
@@ -125,12 +179,12 @@ System.out.print("(2) Would you like to look for a keyword");
         catch(FileNotFoundException ex) {
             System.out.println(
                 "Unable to open file '" + 
-                fileName + "'");                
+                filenamearray[0] + "'");                
         }
         catch(IOException ex) {
             System.out.println(
                 "Error reading file '" 
-                + fileName + "'");                  
+                +  filenamearray[0] + "'");                  
             // Or we could just do this: 
             // ex.printStackTrace();
         }
@@ -141,7 +195,6 @@ System.out.print("(2) Would you like to look for a keyword");
      
      
  }
- 
  
  
  
