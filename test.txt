@@ -1,2 +1,21 @@
 This is a text file to test that everything is able to be uploaded on cloud9
-//test adddddddd
+
+
+//write something to notes in the console and into a txt file
+
+
+9/20 next steps
+
+1) RegEX class and start coding everything in and reference it back in the main
+    
+2) find tweets that have more references in them
+
+3) Build the hash map class 
+
+4) Sort the hash map class topologically and send the results to an output file and to the console
+
+
+Important things 2 note: 
+-We want to make the program general enough so that we can point to a directory and have all of the files from the directory parsed through
+-We want to have different functions in the REGEX class that denote different things
+-We need to explain what we have coded both in our comments as well as in the READ me - so that it is easier to read

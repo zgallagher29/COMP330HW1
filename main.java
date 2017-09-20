@@ -149,7 +149,7 @@ System.out.print("(2) Would you like to look for a keyword");
         String line = null;
 
 
-            //for loop here because the for loop will iterate through the amount of files the user wants
+            //for ( ){//for loop here because the for loop will iterate through the amount of files the user wants
         try {
             // FileReader reads text files in the default encoding.
             FileReader fileReader = 
