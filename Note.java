@@ -1,4 +1,4 @@
-package TwitterParser;
+
 
 import java.util.*;
 import java.io.*;
@@ -10,30 +10,29 @@ import java.util.List;
 public class Note{
 
 
-String folderName="";
-
 public static void start(){
+    String userFolderName="";
+	
+	System.out.println("What is the name of the folder/directory?");
+	
+	Scanner keyboard = new Scanner(System.in);
+	 
+	userFolderName=keyboard.nextLine();
+    
+    
+    addFiles(userFolderName);
   
-    List<String> fileName= new ArrayList<>();
-    addFiles();
-    printOutFiles();
     
     
     
 }
 
-public static void setFolderName(String newFolderName){
-    String folderName;
-    folderName=newFolderName;
-}
 
-public String getFolderName(){
-    return folderName;
-}
 
 //adds files to Array 
-public static void addFiles(){
-    File dir = new File(folderName);
+public static void addFiles(String dirName){
+    List<String> fileName= new ArrayList<>();
+    File dir = new File(dirName);
     fileName = Arrays.asList(dir.list(
    new FilenameFilter() {
       @Override public boolean accept(File dir, String name) {
@@ -42,14 +41,11 @@ public static void addFiles(){
    }
 ));
 
+System.out.println(fileName);
+
 
 }
 
 
-//prints out the files in the directory 
-public static void printOutFiles(){
-    System.out.println(fileName);
-    
-}
 
 }

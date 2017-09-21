@@ -384,7 +384,7 @@ System.out.print("(2) Would you like to look for a keyword");
 	
 // }*/
 
-package TweetParser;
+
 import java.util.*;
 import java.io.*;
 import java.util.Scanner;
@@ -396,15 +396,6 @@ public class main{
 	public static void main(String[] args){
 	
 	Note newNote= new Note();
-	
-	String userFolderName="";
-	
-	System.out.println("What is the name of the folder/directory?");
-	
-	Scanner keyboard = new Scanner(System.in);
-	 
-	userFolderName=keyboard.nextLine();
-	newNote.setFolderName(userFolderName);
 	newNote.start();
 	
 	
