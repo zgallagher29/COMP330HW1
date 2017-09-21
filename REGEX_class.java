@@ -1,5 +1,5 @@
 //REGEX file
-import java.util.regex.*;
+//import java.util.regex.*;
 //import java.util.regex.Matcher;
 //import java.util.regex.Pattern;
 //import java.util.regex.PatternSyntaxException;
@@ -21,7 +21,16 @@ public class REGEX_class {  // class declaration
     
     public REGEX_class { //constructor?
     
+//    @[]//uppercase
+  //  []//lowercase
+//    []//numbers
+    //[]keywords
+    //topics
+    //identifiers
+    //^reference
     
+    regex expressions = ("[@!*^]*")
+     
         
         
         

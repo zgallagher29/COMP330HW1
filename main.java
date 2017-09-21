@@ -318,7 +318,7 @@ System.out.print("(2) Would you like to look for a keyword");
 		
 // 		regexChecker("\\w*", strangeString);
 		
-// 		regexChecker("[A-Za-z0-9._\\%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}", longString);
+// 		regexChecker("@[A-Z]a-z0-9._\\%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}", longString);
 		
 		
 // 		// ?  0 or 1 of what proceeds it
@@ -389,6 +389,13 @@ import java.util.*;
 import java.io.*;
 import java.util.Scanner;
 
+
+
+
+
+
+
+
 public class main{
 	
 	
@@ -404,3 +411,5 @@ public class main{
 	
 	
 	}}
+	
+	
