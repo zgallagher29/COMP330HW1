@@ -1,5 +1,8 @@
 //REGEX file
-
+import java.util.regex.*;
+//import java.util.regex.Matcher;
+//import java.util.regex.Pattern;
+//import java.util.regex.PatternSyntaxException;
 //documentation/instruction: https://www.javaworld.com/article/3188545/learn-java/java-101-regular-expressions-in-java-part-1.html
  //asks user for what they want
   /*
@@ -32,7 +35,7 @@ public class REGEX_class {  // class declaration
     
     
     
-    public void mentions { //@mentions function
+    public void mentions () { //@mentions function
         
         
         
@@ -40,7 +43,7 @@ public class REGEX_class {  // class declaration
         
     }
     
-       public void keywords { //[keywords] function
+       public void keywords () { //[keywords] function
         
         
         
@@ -48,14 +51,14 @@ public class REGEX_class {  // class declaration
     }
     
     
-       public void topics { //#topics function
+       public void topics (){ //#topics function
         
         
         
         
     }
     
-      public void topics { //^reference function
+      public void reference () { //^reference function
         
         
         
@@ -65,7 +68,7 @@ public class REGEX_class {  // class declaration
     
     
     
-      public void topics { //!unique identifier function
+      public void identifier (){ //!unique identifier function
         
         
         
