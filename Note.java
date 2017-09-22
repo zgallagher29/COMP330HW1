@@ -12,6 +12,8 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 import java.io.IOException;
 import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Note {
 
@@ -100,6 +102,7 @@ String line="";
 int totalMentions=0;
 int lineNumber=1;
 i=0;
+ HashMap<Integer, String> hmap = new HashMap<Integer, String>();
  for (File child : directoryListing){
     
       try {
@@ -118,6 +121,8 @@ i=0;
                System.out.println("In line number "+ lineNumber+ ": ");
                 System.out.println(line);
                 totalMentions++;
+                hmap.put(lineNumber,line);
+                
                     
                 }
                 lineNumber++;
@@ -145,6 +150,15 @@ i=0;
     totalMentions=0;
     lineNumber=1;
 }
+
+
+
+
+
+
+
+
+
 }
 }
 

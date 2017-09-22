@@ -58,8 +58,8 @@ public static void RegEx_Tester (String theRegex, String str2check) {
   
   //asks user for what they want
   /*
-  ! = UNIQUE identifier for note
-^ = denotes a reference to another note by their unique identifier (above)
+  ! = UNIQUE identifier for note -- done
+^ = denotes a reference to another note by their unique identifier (above) --done
 @ = mentions a PERSON, unique to the individual person
 # = denotes a topic addressed in the note
 [keywords] = "vocab words," or common words within a note
