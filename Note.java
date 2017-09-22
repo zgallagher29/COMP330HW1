@@ -96,13 +96,19 @@ switch (mention_option) {
              System.out.print("2. What keyword would you look like to search for? ");
              searchWord=keyboard.nextLine();
              break;
+             
+             
+             //case 6: 
+             //System.out.print("Would you like to see your results using a Regex Machine? ");
+             
                                         }
                             
 String line="";
 int totalMentions=0;
 int lineNumber=1;
 i=0;
- HashMap<Integer, String> hmap = new HashMap<Integer, String>();
+String strI = "";
+ HashMap<String, String> hmap = new HashMap<String, String>();
  for (File child : directoryListing){
     
       try {
@@ -121,7 +127,9 @@ i=0;
                System.out.println("In line number "+ lineNumber+ ": ");
                 System.out.println(line);
                 totalMentions++;
-                hmap.put(lineNumber,line);
+                strI = String.valueOf(lineNumber);
+                strI="Line: "+strI;
+                hmap.put(strI,line);
                 
                     
                 }
@@ -149,17 +157,62 @@ i=0;
     i++;
     totalMentions=0;
     lineNumber=1;
+    
+    
 }
 
 
-
-
-
-
-
-
+method2(hmap);
 
 }
+
+public void method2(HashMap<String,String> map){
+    //write to file : "fileone"
+    try{
+    File fileTwo=new File("filetwo.txt");
+    FileOutputStream fos=new FileOutputStream(fileTwo);
+        PrintWriter pw=new PrintWriter(fos);
+
+        for(Map.Entry<String,String> m :map.entrySet()){
+            pw.println(m.getKey()+"="+m.getValue());
+        }
+
+        pw.flush();
+        pw.close();
+        fos.close();
+    }catch(Exception e){}
+
+    //read from file 
+    try{
+        File toRead=new File("filetwo.txt");
+        FileInputStream fis=new FileInputStream(toRead);
+
+        Scanner sc=new Scanner(fis);
+
+        HashMap<String,String> mapInFile=new HashMap<String,String>();
+
+        //read data from file line by line:
+        String currentLine;
+        while(sc.hasNextLine()){
+            currentLine=sc.nextLine();
+            //now tokenize the currentLine:
+            StringTokenizer st=new StringTokenizer(currentLine,"=",false);
+            //put tokens ot currentLine in map
+            mapInFile.put(st.nextToken(),st.nextToken());
+        }
+        fis.close();
+
+        //print All data in MAP
+        for(Map.Entry<String,String> m :mapInFile.entrySet()){
+            System.out.println(m.getKey()+" : "+m.getValue());
+        }
+    }catch(Exception e){}
+  }
+
+
+
+
+
 }
 
  //ok so we need a function involving REGEX to parse through the files
