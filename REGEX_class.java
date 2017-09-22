@@ -6,7 +6,7 @@ import java.util.regex.*;
 
 
 
-public class regTest {
+public class REGEX_class {
  
  
  
@@ -14,9 +14,9 @@ public class regTest {
  
  
  
-  public void startRegex() {
+  public static void main(String[] args) {
     String in = "Let's match 127.0.0.1 being valid, or this IP: 127.0.0.1 and joinTHIS.server.com or build 1.2";
-    String regularexpressioncheck = "[@][A-Za-z0-9]\w[0-9A-Za-z0-9]\w['^']+[A-Za-z0-9]\w"; //since we're doing it all to search
+    String regularexpressioncheck = "([@][A-Za-z0-9]+[0-9A-Za-z0-9]+['^']+[A-Za-z0-9])\\w"; //since we're doing it all to search
     //in one string we need to search through and say like '+' so that it looks for multiple
     
     Pattern p = Pattern.compile(regularexpressioncheck, Pattern.CASE_INSENSITIVE);
@@ -26,29 +26,33 @@ public class regTest {
     }
   }
 }
-/*
-
-([@][A-Za-z0-9])\w ----- mentions
-([0-9A-Za-z0-9])\w --- keyword
-(['^']+[A-Za-z0-9])\w ---- references
-(['^']+[A-Za-z0-9]+[^])\w --references
-([A-Za-z0-9]+['^'])\w  --- reference
-([!]+[A-Za-z0-9]+[!])\w -- identifier
-([!]+[A-Za-z0-9])\w -- identifier
-[A-Za-z0-9]+[!])\w -- identifier
-([#]+[A-Za-z0-9]+[#])\w -- identifier
-([#]]+[A-Za-z0-9])\w -- identifier
-[A-Za-z0-9]+[#])\w -- identifier
 
 
 
 
-(['^']+[A-Za-z0-9]+[^])\w --references
-([A-Za-z0-9]+['^'])\w  --- reference
-([!]+[A-Za-z0-9]+[!])\w -- identifier
-([!]+[A-Za-z0-9])\w -- identifier
-[A-Za-z0-9]+[!])\w -- identifier
-([#]+[A-Za-z0-9]+[#])\w -- identifier
-([#]]+[A-Za-z0-9])\w -- identifier
-[A-Za-z0-9]+[#])\w -- identifier";
-/*
+// ///*
+
+// ([@][A-Za-z0-9])\w ----- mentions
+// ([0-9A-Za-z0-9])\w --- keyword
+// (['^']+[A-Za-z0-9])\w ---- references
+// (['^']+[A-Za-z0-9]+[^])\w --references
+// ([A-Za-z0-9]+['^'])\w  --- reference
+// ([!]+[A-Za-z0-9]+[!])\w -- identifier
+// ([!]+[A-Za-z0-9])\w -- identifier
+// [A-Za-z0-9]+[!])\w -- identifier
+// ([#]+[A-Za-z0-9]+[#])\w -- identifier
+// ([#]]+[A-Za-z0-9])\w -- identifier
+// [A-Za-z0-9]+[#])\w -- identifier
+
+
+
+
+// (['^']+[A-Za-z0-9]+[^])\w --references
+// ([A-Za-z0-9]+['^'])\w  --- reference
+// ([!]+[A-Za-z0-9]+[!])\w -- identifier
+// ([!]+[A-Za-z0-9])\w -- identifier
+// [A-Za-z0-9]+[!])\w -- identifier
+// ([#]+[A-Za-z0-9]+[#])\w -- identifier
+// ([#]]+[A-Za-z0-9])\w -- identifier
+// [A-Za-z0-9]+[#])\w -- identifier";
+// /*

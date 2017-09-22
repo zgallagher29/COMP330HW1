@@ -210,11 +210,25 @@ public class REGEX_class {  // class declaration
         
         
         
+        
+        
+        
     }
     /*
     
     
     
+    
+    
+    9/21
+    
+    
+    1) write the output (pre topological sort) ---- to a file
+    2) finish reg ex and make the input all of the input files that are in the array] --- make input files
+    3) make the topological sort based on the count of the ^  & set that to inorder
+    4) make count variables for all the differnt identifiers/mentions/everything
+    5) display reg ex  in a table?
+    6) send the "topological" sort stuff to another output file
     
     
     
