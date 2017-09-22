@@ -188,7 +188,7 @@ System.out.print("(2) Would you like to look for a keyword");
 //         String line = null;
 
 
-//             //for ( ){//for loop here because the for loop will iterate through the amount of files the user wants
+// //             //for ( ){//for loop here because the for loop will iterate through the amount of files the user wants
 //         try {
 //             // FileReader reads text files in the default encoding.
 //             FileReader fileReader = 
@@ -388,6 +388,9 @@ System.out.print("(2) Would you like to look for a keyword");
 import java.util.*;
 import java.io.*;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.regex.*;
 
 
 
@@ -404,11 +407,7 @@ public class main{
 	
 	Note newNote= new Note();
 	newNote.start();
-	
-	
-	
-	
-	
+    
 	
 	}}
 	

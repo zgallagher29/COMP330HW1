@@ -11,11 +11,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 import java.io.IOException;
+import java.io.FileInputStream;
 
-
-public class Note{
+public class Note {
 
  List<String> fileName= new ArrayList<>();
+ 
+ rTest test = new rTest();
 
 public void start(){
     String userFolderName="";
@@ -26,8 +28,23 @@ public void start(){
 	 
 	userFolderName=keyboard.nextLine();
     
+    int i =0;
+     File dir = new File(userFolderName);
+     File[] directoryListing = dir.listFiles();
+    if (directoryListing != null) {
+     
+     System.out.println("Here are the listed files: ");
+    for (File child : directoryListing) {
+      	System.out.println(directoryListing[i]);
+      	i++;
+    }
+    } else {
     
-    addFiles(userFolderName);
+    System.out.println("No files here!");
+    
+  }
+  test.startRegex();
+  
   
     
     
@@ -36,47 +53,8 @@ public void start(){
 
 
 
-//adds files to Array 
-//source : https://stackoverflow.com/questions/2532953/adding-file-names-to-an-array-list-in-java
-public void addFiles(String dirName)throws IOException{
-   
-    File dir = new File(dirName);
-    fileName = Arrays.asList(dir.list(
-   new FilenameFilter() {
-      @Override public boolean accept(File dir, String name) {
-         return name.endsWith(".txt");
-      }
-   }
-));
-
-System.out.println("Here are the file names: "+fileName);
-readIt(fileName);
-
-}
 
 
-
-
-public void readIt(List<String> dirName) throws IOException{
-    String line="";
-    for (int i = 0; i <dirName.size(); i++){
-       
-       
-        FileReader fileReader = new FileReader(dirName.get(i));
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        while((line = bufferedReader.readLine()) != null) {
-              if(line.contains("sushi")){
-               
-                System.out.println(line);
-           
-                    
-                }
-                
-    }
-        fileReader.close();
-    
-    
-}
 }
 
 
@@ -85,7 +63,7 @@ public void readIt(List<String> dirName) throws IOException{
  //idk what to do about topological sort part
 
 
-}
+
 
 
 

@@ -24,3 +24,204 @@ Important things 2 note:
 
 9/21
 1) 
+
+
+
+/*//REGEX file
+import java.util.regex.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
+
+
+
+//documentation/instruction: https://www.javaworld.com/article/3188545/learn-java/java-101-regular-expressions-in-java-part-1.html
+ //asks user for what they want
+  /*
+  ! = UNIQUE identifier for note
+^ = denotes a reference to another note by their unique identifier (above)
+@ = mentions a PERSON, unique to the individual person
+# = denotes a topic addressed in the note
+[keywords] = "vocab words," or common words within a note
+  */
+
+// this should actually go in the notes file?
+
+/*
+public class REGEX_class {  // class declaration
+    
+    
+    //we need to have a constructor
+    
+    public REGEX_class { //constructor?
+    
+//    @[]//uppercase
+  //  []//lowercase
+//    []//numbers
+    //[]keywords
+    //topics
+    //identifiers
+    //^reference
+    
+    regex expressions = ("[@!*^]*")
+    
+    
+    
+    //REGEX:
+    
+    public class RegxEngine
+{
+    public static boolean match(String regx, String candidate)
+    {
+        // Empty regx will always return false
+        if (regx.isEmpty())
+        {
+            return false;
+        }
+        else
+        {
+            if (regx.charAt(0) == '*') //charAt returns the specified character from a string
+            {
+                // Last * matches everything
+                if (regx.length() == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return matchStar(regx.substring(1), candidate);
+                }
+            }
+            // Return false if text is empty but pattern is not *
+            else if (candidate.isEmpty())
+            {
+                return false;
+            }
+            else if (regx.charAt(0) == '.' || regx.charAt(0) == candidate.charAt(0))
+            {
+                // If the last regx matches the last text
+                if (regx.length() == 1 && candidate.length() == 1)
+                {
+                    return true;
+                }
+                // If hasn't reached the end, try to match the rest strings
+                else
+                {
+                    return match(regx.substring(1), candidate.substring(1));
+                }
+            }
+            else
+            {
+                return false; 
+            }
+        }
+    }
+
+    // Otherwise skip as many chars as required
+    private static boolean matchStar(String regx, String candidate)
+    {
+        for (int i = 0; i < candidate.length(); i++)
+        {
+            if (match(regx, candidate.substring(i)))
+            {
+                return true;
+            }
+            else
+            {
+                continue;
+            }
+        }
+
+        return false;
+    }
+    
+    
+     private static boolean matchMentions(String regx, String candidate)
+    {
+        for (int i = 0; i < candidate.length(); i++)
+        {
+            if (match(regx, candidate.substring(i)))
+            {
+                return true;
+            }
+            else
+            {
+                continue;
+            }
+        }
+
+        return false;
+    }
+    
+    
+    
+    
+    
+    
+}
+        
+        
+        
+        
+    }
+    
+    
+    
+    //methods:
+    
+    
+    
+    public void mentions (----take in file contents---) { //@mentions function
+        open file & call mentions on contents of file
+        -give it a nice format where it parses by array
+        1) @ 
+        
+        
+        
+    }
+    
+       public void keywords () { //[keywords] function
+        
+        
+        
+        
+    }
+    
+    
+       public void topics (){ //#topics function
+        
+        
+      /*  
+        
+    }
+    
+      public void reference () { //^reference function
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+      public void identifier (){ //!unique identifier function
+        
+        
+        
+        
+    }
+    /*
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
