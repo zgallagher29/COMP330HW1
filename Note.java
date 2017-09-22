@@ -101,6 +101,7 @@ switch (mention_option) {
              //case 6: 
              //System.out.print("Would you like to see your results using a Regex Machine? ");
              
+             
                                         }
                             
 String line="";
@@ -128,7 +129,7 @@ String strI = "";
                 System.out.println(line);
                 totalMentions++;
                 strI = String.valueOf(lineNumber);
-                strI="Line: "+strI;
+                strI="Line: "+strI+"in the file "+directoryListing[i];
                 hmap.put(strI,line);
                 
                     

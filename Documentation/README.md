@@ -8,3 +8,6 @@ Sources Read/Watched:
 https://alvinalexander.com/blog/post/java/how-find-string-simple-regex-pattern-matcher
 
 https://www.youtube.com/watch?v=s_PfopWcMwI
+
+https://regexr.com/
+

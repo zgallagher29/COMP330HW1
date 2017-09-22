@@ -391,7 +391,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.*;
-
+import java.io.IOException;
 
 
 
@@ -403,10 +403,15 @@ public class main{
 	
 	
 	
-	public static void main(String[] args){
+	public static void main(String[] args) throws IOException{
 	
 	Note newNote= new Note();
 	newNote.start();
+	System.out.println("----------------");
+	System.out.println("Time for Regex!!!!!");
+	
+	 REGEX_class r = new  REGEX_class();
+	 r.start();
     
 	
 	}}
