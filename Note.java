@@ -10,7 +10,7 @@ import java.util.regex.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
-
+import java.io.IOException;
 import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -68,21 +68,21 @@ switch (mention_option) {
             addedCharacter=keyboard.nextLine();
              System.out.print("2. What keyword would you look like to search for? ");
             searchWord=keyboard.nextLine();
-            searchWord=searchWord+addedCharacter;
+            searchWord=addedCharacter + searchWord;
             break;
             
             case 2: 
             addedCharacter = "^";
             System.out.print("2. What reference would you look like to search for? ");
             searchWord=keyboard.nextLine();
-            searchWord=searchWord+addedCharacter;
+            searchWord= addedCharacter + searchWord;
             break;
             
             case 3:  
             addedCharacter = "@";
             System.out.print("3. Who would you look like to search for? ");
             searchWord=keyboard.nextLine();
-            searchWord=addedCharacter+searchWord;
+            searchWord=addedCharacter + searchWord;
             break;
             
             case 4:  
