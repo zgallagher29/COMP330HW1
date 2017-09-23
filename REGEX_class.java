@@ -167,7 +167,7 @@ switch (mention_option) {
             
             case 5:  //identifiers
             
-            regularexpressioncheck = "^[a-zA-Z_][0-9a-zA-Z_]*"; //since we're doing it all to search
+            regularexpressioncheck = "([^]+[A-Za-z0-9])\\w"; //since we're doing it all to search
             System.out.println("Here are all the references in the files that were parsed through: ");
             p = Pattern.compile(regularexpressioncheck, Pattern.CASE_INSENSITIVE);
             m = p.matcher(in); //in is the string 
