@@ -75,7 +75,7 @@ public void start() throws IOException{
 int mention_option =1;
 keyboard = new Scanner(System.in);
 String addedCharacter;
-String in="";
+String in= "";
 i=0;
 String regularexpressioncheck;
 
@@ -85,6 +85,7 @@ String regularexpressioncheck;
 
 //for loop for all the files in the directory
 for(File child : directoryListing){
+int count = 0;
 in=convertFileToString(directoryListing[i]);
 //String m, m1, m2,m3
 regularexpressioncheck="(^[!@#$%^&* ][A-Za-z0-9!@#$%^&* ]*)";
@@ -92,7 +93,10 @@ regularexpressioncheck="[0-9A-Za-z][A-Za-z0-9]*"; //keywordchecker
 Pattern p = Pattern.compile(regularexpressioncheck, Pattern.CASE_INSENSITIVE);
 Matcher m = p.matcher(in); //in is the string 
              while (m.find()) {
-            System.out.println(m.group());//modify
+                 count = m;
+            System.out.println(m.group());
+            System.out.println(m.group(count));
+            //modify
              }
 
              
