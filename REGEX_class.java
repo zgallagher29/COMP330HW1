@@ -78,59 +78,66 @@ String regularexpressioncheck3;
 //for loop for all the files in the directory
 for(File child : directoryListing){
 in=convertFileToString(directoryListing[i]);
-mention_option=3;
+
 //String m, m1, m2,m3
 switch (mention_option) {
             
-            case 1:  //identifiers
-            System.out.print("Here are all the identifiers in the files that were parsed through(!,*,?,_etc.)");
-            regularexpressioncheck1="([!]+[A-Za-z0-9]+[!])\\w";
-            regularexpressioncheck2="([!]+[A-Za-z0-9])\\w";
-            regularexpressioncheck3="[A-Za-z0-9]+[!]\\w";
-            System.out.print("Here are all the identifiers in the files that were parsed through: ");
-            Pattern p1= Pattern.compile(regularexpressioncheck1, Pattern.CASE_INSENSITIVE);
-            Matcher m1 = p1.matcher(in); //in is the string 
-             while (m1.find()) {
-            System.out.println(m1.group(1));//modify
-             }
-            Pattern p2 = Pattern.compile(regularexpressioncheck2, Pattern.CASE_INSENSITIVE);
-            Matcher m2 = p2.matcher(in); //in is the string 
-             while (m2.find()) {
-            System.out.println(m2.group(1));//modify
+            case 1:  //topics
+            System.out.println("Here are all the topics in the files that were parsed through");
+           regularexpressioncheck="#\\w+";
+           // regularexpressioncheck="([0-9A-Za-z][A-Za-z0-9])*"; //keywordchecker
+           
+           // regularexpressioncheck1="\\w+!";
+            //regularexpressioncheck2="([!]+[A-Za-z0-9])\\w";
+            //regularexpressioncheck3="[A-Za-z0-9]+[!]\\w"
+            Pattern p= Pattern.compile(regularexpressioncheck, Pattern.CASE_INSENSITIVE);
+            Matcher m = p.matcher(in); //in is the string 
+             while (m.find()) {
+            System.out.println(m.group(0));//modify
+           
              }
              
-            Pattern p3 = Pattern.compile(regularexpressioncheck3, Pattern.CASE_INSENSITIVE);
-            Matcher m3 = p3.matcher(in); //in is the string 
-             while (m3.find()) {
-            System.out.println(m3.group(0));//modify
-             }
              
+             
+            // Pattern p2 = Pattern.compile(regularexpressioncheck2, Pattern.CASE_INSENSITIVE);
+            // Matcher m2 = p2.matcher(in); //in is the string 
+            // while (m2.find()) {
+            // System.out.println(m2.group(1));//modify
+            // }
+             
+            // Pattern p3 = Pattern.compile(regularexpressioncheck3, Pattern.CASE_INSENSITIVE);
+            // Matcher m3 = p3.matcher(in); //in is the string 
+            // while (m3.find()) {
+            // System.out.println(m3.group(0));//modify
+            // }
+             
+            
            
               
             
             
             
-            case 2: //references
-            regularexpressioncheck1="(['^']+[A-Za-z0-9])\\w";
-            regularexpressioncheck2="(['^']+[A-Za-z0-9]+['^';])\\w";
-            regularexpressioncheck3="([A-Za-z0-9]+['^'])\\w";
-            System.out.print("Here are all the references in the files that were parsed through: ");
-            p1= Pattern.compile(regularexpressioncheck1, Pattern.CASE_INSENSITIVE);
-            m1 = p1.matcher(in); //in is the string 
-             while (m1.find()) {
-            System.out.println(m1.group(1));//modify
+            case 2: //keywords
+            regularexpressioncheck="[0-9A-Za-z][A-Za-z0-9]*";
+            //regularexpressioncheck2="(['^']+[A-Za-z0-9]+['^';])\\w";
+            //regularexpressioncheck3="([A-Za-z0-9]+['^'])\\w";
+            System.out.println("Here are all the keywords in the files that were parsed through: ");
+            p= Pattern.compile(regularexpressioncheck, Pattern.CASE_INSENSITIVE);
+            m = p.matcher(in); //in is the string 
+             while (m.find()) {
+            System.out.println(m.group(0));//modify
              }
-            p2 = Pattern.compile(regularexpressioncheck2, Pattern.CASE_INSENSITIVE);
-            m2 = p2.matcher(in); //in is the string 
-             while (m2.find()) {
-            System.out.println(m2.group(1));//modify
-             }
+            // p2 = Pattern.compile(regularexpressioncheck2, Pattern.CASE_INSENSITIVE);
+            // m2 = p2.matcher(in); //in is the string 
+            // while (m2.find()) {
+            // System.out.println(m2.group(1));//modify
+            // }
              
-            p3 = Pattern.compile(regularexpressioncheck3, Pattern.CASE_INSENSITIVE);
-             m3 = p3.matcher(in); //in is the string 
-             while (m3.find()) {
-            System.out.println(m3.group(1));//modify
-             }
+            // p3 = Pattern.compile(regularexpressioncheck3, Pattern.CASE_INSENSITIVE);
+            // m3 = p3.matcher(in); //in is the string 
+            // while (m3.find()) {
+            // System.out.println(m3.group(1));//modify
+            // }
              
            
             
@@ -138,35 +145,58 @@ switch (mention_option) {
             case 3:  //mentions
             
             regularexpressioncheck = "@\\w+"; //since we're doing it all to search
-            System.out.print("Here are all the mentions in the files that were parsed through: ");
-            Pattern p = Pattern.compile(regularexpressioncheck, Pattern.CASE_INSENSITIVE);
-            Matcher m = p.matcher(in); //in is the string 
-             while (m.find()) {
+            System.out.println("Here are all the mentions in the files that were parsed through: ");
+            p = Pattern.compile(regularexpressioncheck, Pattern.CASE_INSENSITIVE);
+            m = p.matcher(in); //in is the string 
+            while (m.find()) {
             System.out.println(m.group(0));//modify
-             }
+            }
             
             
-            case 4:  //topics
-            regularexpressioncheck1="(['#']+[A-Za-z0-9]+['#'])\\w";
-            regularexpressioncheck2="(['#']]+[A-Za-z0-9])\\w";
-            regularexpressioncheck3="([A-Za-z0-9]+['#'])\\w";
-            System.out.print("Here are all the topics in the files that were parsed through: ");
-            p1= Pattern.compile(regularexpressioncheck1, Pattern.CASE_INSENSITIVE);
-            m1 = p1.matcher(in); //in is the string 
-             while (m1.find()) {
-            System.out.println(m1.group(1));//modify
-             }
-            p2 = Pattern.compile(regularexpressioncheck2, Pattern.CASE_INSENSITIVE);
-            m2 = p2.matcher(in); //in is the string 
-             while (m2.find()) {
-            System.out.println(m2.group(1));//modify
-             }
+            case 4:  //identifiers
+            
+            regularexpressioncheck = "!\\w+"; //since we're doing it all to search
+            System.out.println("Here are all the identifiers in the files that were parsed through: ");
+            p = Pattern.compile(regularexpressioncheck, Pattern.CASE_INSENSITIVE);
+            m = p.matcher(in); //in is the string 
+            while (m.find()) {
+            System.out.println(m.group(0));//modify
+            }
+            
+            
+            
+            case 5:  //identifiers
+            
+            regularexpressioncheck = "^[a-zA-Z_][0-9a-zA-Z_]*"; //since we're doing it all to search
+            System.out.println("Here are all the references in the files that were parsed through: ");
+            p = Pattern.compile(regularexpressioncheck, Pattern.CASE_INSENSITIVE);
+            m = p.matcher(in); //in is the string 
+            while (m.find()) {
+            System.out.println(m.group(0));//modify
+            }
+            
+            
+            // case 4:  //topics
+            // regularexpressioncheck1="#\\w+";
+            // regularexpressioncheck2="(['#']]+[A-Za-z0-9])\\w";
+            // regularexpressioncheck3="([A-Za-z0-9]+['#'])\\w";
+            // System.out.println("Here are all the topics in the files that were parsed through: ");
+            // p1= Pattern.compile(regularexpressioncheck1, Pattern.CASE_INSENSITIVE);
+            // m1 = p1.matcher(in); //in is the string 
+            // while (m1.find()) {
+            // System.out.println(m1.group(0));//modify
+            // }
+            // // p2 = Pattern.compile(regularexpressioncheck2, Pattern.CASE_INSENSITIVE);
+            // // m2 = p2.matcher(in); //in is the string 
+            // // while (m2.find()) {
+            // // System.out.println(m2.group(1));//modify
+            // // }
              
-            p3 = Pattern.compile(regularexpressioncheck3, Pattern.CASE_INSENSITIVE);
-            m3 = p3.matcher(in); //in is the string 
-             while (m3.find()) {
-            System.out.println(m3.group(1));//modify
-             }
+            // // p3 = Pattern.compile(regularexpressioncheck3, Pattern.CASE_INSENSITIVE);
+            // // m3 = p3.matcher(in); //in is the string 
+            // // while (m3.find()) {
+            // // System.out.println(m3.group(1));//modify
+            // // }
              
            
             
@@ -175,18 +205,18 @@ switch (mention_option) {
             
             
             
-            case 5: //keywords
-             System.out.print("Here are all the keywords in the files that were parsed through: ");
-             regularexpressioncheck = "([0-9A-Za-z0-9])\\w"; //since we're doing it all to search
-            System.out.print("Here are all the keywords in the files that were parsed through: ");
-             p = Pattern.compile(regularexpressioncheck, Pattern.CASE_INSENSITIVE);
-             m = p.matcher(in); //in is the string 
-             while (m.find()) {
-            System.out.println(m.group(1));//modify
-             }
+            // case 5: //keywords
+            // System.out.print("Here are all the keywords in the files that were parsed through: ");
+            // regularexpressioncheck = "([0-9A-Za-z0-9])\\w"; //since we're doing it all to search
+            // System.out.print("Here are all the keywords in the files that were parsed through: ");
+            // p = Pattern.compile(regularexpressioncheck, Pattern.CASE_INSENSITIVE);
+            // m = p.matcher(in); //in is the string 
+            // while (m.find()) {
+            // System.out.println(m.group(1));//modify
+            // }
              
              
-             
+             i++;
              
              
                                    }     }
@@ -309,30 +339,3 @@ public void method2(HashMap<String,String> map){
 
 
 
-
-// ///*
-
-// ([@][A-Za-z0-9])\w ----- mentions
-// ([0-9A-Za-z0-9])\w --- keyword
-// (['^']+[A-Za-z0-9])\w ---- references
-// (['^']+[A-Za-z0-9]+[^])\w --references
-// ([A-Za-z0-9]+['^'])\w  --- reference
-// ([!]+[A-Za-z0-9]+[!])\w -- identifier
-// ([!]+[A-Za-z0-9])\w -- identifier
-// [A-Za-z0-9]+[!])\w -- identifier
-// ([#]+[A-Za-z0-9]+[#])\w -- topic
-// ([#]]+[A-Za-z0-9])\w -- topic
-// [A-Za-z0-9]+[#])\w -- topic
-
-
-
-
-// (['^']+[A-Za-z0-9]+[^])\w --references
-// ([A-Za-z0-9]+['^'])\w  --- reference
-// ([!]+[A-Za-z0-9]+[!])\w -- identifier
-// ([!]+[A-Za-z0-9])\w -- identifier
-// [A-Za-z0-9]+[!])\w -- identifier
-// ([#]+[A-Za-z0-9]+[#])\w -- identifier
-// ([#]]+[A-Za-z0-9])\w -- identifier
-// [A-Za-z0-9]+[#])\w -- identifier";
-// /*
