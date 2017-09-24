@@ -71,11 +71,18 @@ i=0;
 String regularexpressioncheck;
 String convert="";
 List<wordInfo> wordMatch = new ArrayList<wordInfo>();
-Map<String, Integer> myMap = new HashMap<String, Integer>();
+HashMap<String, Integer> myMap = new HashMap<String, Integer>();
 int locationOfMatch=0;
-for(File child : directoryListing){
 
-in=convertFileToString(directoryListing[i]);
+
+for(File child : directoryListing){
+    in=convertFileToString(directoryListing[i]);
+String strFileName = child.getName();
+
+
+
+
+System.out.println("Name of file is "+ in);
 int referenceCount=0;
 //String m, m1, m2,m3
 switch (mention_option) {
@@ -191,7 +198,7 @@ switch (mention_option) {
         
              }
     
-              myMap.put(in,referenceCount);
+              myMap.put(strFileName,referenceCount);
              System.out.println("The reference count for this file is "+ referenceCount);
              i++;
              
@@ -209,7 +216,7 @@ switch (mention_option) {
 public void printArray(List<wordInfo>matches){
     
     System.out.println("--------------");
-    System.out.println("Here is a list of common between all the files: ");
+    System.out.println("Here is a list of common words between all the files: ");
     for(int n=0; n<matches.size(); n++){
        if( matches.get(n).getWordCount()>1){
          System.out.println("--");
@@ -265,23 +272,27 @@ public int getIndex(List<wordInfo>match, String name){
     } finally {
         reader.close();
     }
+ }
     
     
-    
-    public void Topologicalsort (Map<String, Integer> map) {
+    public void Topologicalsort (HashMap<String, Integer> map) {
        
        //We need to sort the references (files) and make the one with the most go in last
         //We need to pop or retrieve the the files
         
-        Comparator<String> comparator = new ValueComparator<String, Integer>(map);
+    TreeMap<String, Integer> sortedMap = sortMapByValue(map);  
+		System.out.println(sortedMap);
+    }
+        
+        
+        public static TreeMap<String, Integer> sortMapByValue(HashMap<String, Integer> map){
+		Comparator<String> comparator = new ValueComparator(map);
+		//TreeMap is a map sorted by its keys. 
+		//The comparator is used to sort the TreeMap by keys. 
 		TreeMap<String, Integer> result = new TreeMap<String, Integer>(comparator);
 		result.putAll(map);
- 
-		System.out.println(result);
-        
-        
-        
-        
+		return result;
+	}
    // }
     //Topological sort method
     
@@ -294,7 +305,7 @@ public int getIndex(List<wordInfo>match, String name){
 
 
 
-}}
+}
 
 
 
@@ -305,7 +316,23 @@ public int getIndex(List<wordInfo>match, String name){
 
 
 
-
+class ValueComparator implements Comparator<String>{
+ 
+	HashMap<String, Integer> map = new HashMap<String, Integer>();
+ 
+	public ValueComparator(HashMap<String, Integer> map){
+		this.map.putAll(map);
+	}
+ 
+	@Override
+	public int compare(String s1, String s2) {
+		if(map.get(s1) >= map.get(s2)){
+			return -1;
+		}else{
+			return 1;
+		}	
+	}
+}
 
 
 
