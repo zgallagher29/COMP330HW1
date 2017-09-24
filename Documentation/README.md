@@ -2,12 +2,11 @@
 
 //PlANNING.txt contains some planning that we did on differnt dates
 //REGEX_class:
-1) Creates our final document with all the mentions, identifiers, topics, keywords, and references.
-2) Sorts the files topologically based upon references
+    1) Creates our final document with all the mentions, identifiers, topics, keywords, and references.
+    2) Sorts the files topologically based upon references
 //Note.java: prompts the users to enter a mentions, identifiers, topics, keywords, or reference and returns what is in the file (without regex)
 //wordInfo.java: Does a word count of the different cases
-//ValueComparator: 
-//topoSorted: 
+//topoSortedtxt:Prints the order of files topologically sorted 
 
 
 
