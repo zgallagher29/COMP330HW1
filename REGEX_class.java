@@ -88,8 +88,11 @@ switch (mention_option) {
              while (m.find()) {
             System.out.println(m.group(0));//modify
             convert=m.group(0).toString();
-            if(convert)
-            wordMatch.add(new wordInfo (convert));
+            if(wordMatch.contains(convert)){
+                System.out.println("match founds!");
+            }
+            else{
+            wordMatch.add(new wordInfo (convert));}
         
              }
              
@@ -152,48 +155,17 @@ switch (mention_option) {
 
 }
 
-public void method2(HashMap<String,String> map){
-    //write to file : "fileone"
-    try{
-    File fileTwo=new File("filetwo.txt");
-    FileOutputStream fos=new FileOutputStream(fileTwo);
-        PrintWriter pw=new PrintWriter(fos);
 
-        for(Map.Entry<String,String> m :map.entrySet()){
-            pw.println(m.getKey()+"="+m.getValue());
-        }
 
-        pw.flush();
-        pw.close();
-        fos.close();
-    }catch(Exception e){}
 
-    //read from file 
-    try{
-        File toRead=new File("filetwo.txt");
-        FileInputStream fis=new FileInputStream(toRead);
+public boolean isInArray(List<wordInfo>match, String )
 
-        Scanner sc=new Scanner(fis);
 
-        HashMap<String,String> mapInFile=new HashMap<String,String>();
 
-        //read data from file line by line:
-        String currentLine;
-        while(sc.hasNextLine()){
-            currentLine=sc.nextLine();
-            //now tokenize the currentLine:
-            StringTokenizer st=new StringTokenizer(currentLine,"=",false);
-            //put tokens ot currentLine in map
-            mapInFile.put(st.nextToken(),st.nextToken());
-        }
-        fis.close();
 
-        //print All data in MAP
-        for(Map.Entry<String,String> m :mapInFile.entrySet()){
-            System.out.println(m.getKey()+" : "+m.getValue());
-        }
-    }catch(Exception e){}
-  }
+
+
+
  public String convertFileToString(File file)throws IOException {
     BufferedReader reader = new BufferedReader(new FileReader (file));
     String         line = null;
@@ -216,8 +188,6 @@ public void method2(HashMap<String,String> map){
 
 
 }}
-
-
 
 
 
