@@ -13,7 +13,7 @@ public class main{
 Note newNote= new Note();
 newNote.start();
 	System.out.println("----------------");
-	System.out.println("Time for Regex!!!!!");
+	System.out.println("Time for Regex!");
 	
 	 REGEX_class r = new  REGEX_class();
 	 r.start();

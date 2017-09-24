@@ -88,6 +88,7 @@ switch (mention_option) {
              while (m.find()) {
             System.out.println(m.group(0));//modify
             convert=m.group(0).toString();
+            if(convert)
             wordMatch.add(new wordInfo (convert));
         
              }
