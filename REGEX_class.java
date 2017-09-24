@@ -73,7 +73,7 @@ String regularexpressioncheck2;
 String regularexpressioncheck3;
 String convert="";
 List<wordInfo> wordMatch = new ArrayList<wordInfo>();
-
+int locationOfMatch=0;
 for(File child : directoryListing){
 in=convertFileToString(directoryListing[i]);
 
@@ -88,8 +88,11 @@ switch (mention_option) {
              while (m.find()) {
             System.out.println(m.group(0));//modify
             convert=m.group(0).toString();
-            if(wordMatch.contains(convert)){
-                System.out.println("match founds!");
+            if(isInArray(wordMatch, convert)){
+               locationOfMatch= getIndex(wordMatch, convert);
+               wordMatch.get(locationOfMatch).addCount();
+                
+                
             }
             else{
             wordMatch.add(new wordInfo (convert));}
@@ -106,30 +109,56 @@ switch (mention_option) {
             m = p.matcher(in); //in is the string 
              while (m.find()) {
             System.out.println(m.group(0));//modify
+            convert=m.group(0).toString();
+            if(isInArray(wordMatch, convert)){
+               locationOfMatch= getIndex(wordMatch, convert);
+               wordMatch.get(locationOfMatch).addCount();
+                
+                
+            }
+            else{
+            wordMatch.add(new wordInfo (convert));}
+        
              }
-     
-            
+             
             case 3:  //mentions
             
             regularexpressioncheck = "@\\w+"; //since we're doing it all to search
             System.out.println("Here are all the mentions in the files that were parsed through: ");
             p = Pattern.compile(regularexpressioncheck, Pattern.CASE_INSENSITIVE);
             m = p.matcher(in); //in is the string 
-            while (m.find()) {
+             while (m.find()) {
             System.out.println(m.group(0));//modify
+            convert=m.group(0).toString();
+            if(isInArray(wordMatch, convert)){
+               locationOfMatch= getIndex(wordMatch, convert);
+               wordMatch.get(locationOfMatch).addCount();
+                
+                
             }
-            
-            
+            else{
+            wordMatch.add(new wordInfo (convert));}
+        
+             }
+             
             case 4:  //identifiers
             regularexpressioncheck = "!\\w+"; //since we're doing it all to search
             System.out.println("Here are all the identifiers in the files that were parsed through: ");
             p = Pattern.compile(regularexpressioncheck, Pattern.CASE_INSENSITIVE);
             m = p.matcher(in); //in is the string 
-            while (m.find()) {
-            System.out.println(m.group(0));
-       
+             while (m.find()) {
+            System.out.println(m.group(0));//modify
+            convert=m.group(0).toString();
+            if(isInArray(wordMatch, convert)){
+               locationOfMatch= getIndex(wordMatch, convert);
+               wordMatch.get(locationOfMatch).addCount();
+                
+                
             }
-            
+            else{
+            wordMatch.add(new wordInfo (convert));}
+        
+             }
             
             
             case 5:  //references
@@ -140,10 +169,19 @@ switch (mention_option) {
             System.out.println("Here are all the references in the files that were parsed through: ");
             p = Pattern.compile(regularexpressioncheck, Pattern.CASE_INSENSITIVE);
             m = p.matcher(in); //in is the string 
-            while (m.find()) {
+             while (m.find()) {
             System.out.println(m.group(0));//modify
+            convert=m.group(0).toString();
+            if(isInArray(wordMatch, convert)){
+               locationOfMatch= getIndex(wordMatch, convert);
+               wordMatch.get(locationOfMatch).addCount();
+                
+                
             }
-            
+            else{
+            wordMatch.add(new wordInfo (convert));}
+        
+             }
     
              
              i++;
@@ -158,7 +196,34 @@ switch (mention_option) {
 
 
 
-public boolean isInArray(List<wordInfo>match, String )
+public boolean isInArray(List<wordInfo>match, String name){
+   
+    
+    for(int x=0; x<match.size();x++){
+        if(match.get(x).getWord().equals(name)){
+            return true;
+        }
+        
+    }
+    return false;
+    
+    
+}
+
+
+public int getIndex(List<wordInfo>match, String name){
+    
+    
+    for(int x=0; x<match.size();x++){
+        if(match.get(x).getWord().equals(name)){
+            return x;
+        }
+        
+    }
+    return 0;
+    
+    
+}
 
 
 
@@ -182,6 +247,16 @@ public boolean isInArray(List<wordInfo>match, String )
     } finally {
         reader.close();
     }
+    
+    
+    
+    
+    //Topological sort method
+    
+    //This needs to return what the highest count of the ^ (references) are in the files
+    //This isn't neccesarily using a graph but it is still sorted topologically
+    
+    
     
     
 
