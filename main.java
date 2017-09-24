@@ -18,6 +18,8 @@ newNote.start();
 	 REGEX_class r = new  REGEX_class();
 	 r.start();
     
+    //TopologicalSort_class t = new TopologicalSort_class();
+    //t.start()
 	
 	}}
 	

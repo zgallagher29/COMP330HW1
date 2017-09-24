@@ -71,8 +71,8 @@ String regularexpressioncheck;
 String regularexpressioncheck1;
 String regularexpressioncheck2;
 String regularexpressioncheck3;
-
- List<String> allMatches = new ArrayList<String>();
+String convert="";
+List<wordInfo> wordMatch = new ArrayList<wordInfo>();
 
 for(File child : directoryListing){
 in=convertFileToString(directoryListing[i]);
@@ -87,9 +87,9 @@ switch (mention_option) {
             Matcher m = p.matcher(in); //in is the string 
              while (m.find()) {
             System.out.println(m.group(0));//modify
-            
-            allMatches.add(m.group(0));
-           
+            convert=m.group(0).toString();
+            wordMatch.add(new wordInfo (convert));
+        
              }
              
 
