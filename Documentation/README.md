@@ -5,12 +5,17 @@
 1) Creates our final document with all the mentions, identifiers, topics, keywords, and references.
 2) Sorts the files topologically based upon references
 //Note.java: prompts the users to enter a mentions, identifiers, topics, keywords, or reference and returns what is in the file (without regex)
-//
+//wordInfo.java: Does a word count of the different cases
+//ValueComparator: 
+
+
 
 Sources Read/Watched: 
 1) https://alvinalexander.com/blog/post/java/how-find-string-simple-regex-pattern-matcher
 2) https://www.youtube.com/watch?v=s_PfopWcMwI
 3) https://regexr.com/
+4) https://www.programcreek.com/2013/03/java-sort-map-by-value/ - We used this a lot for our topological sort
+
 
 Functional Requirements:
 1) Be able to report of all notes containing one or more mentions

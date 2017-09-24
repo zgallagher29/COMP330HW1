@@ -15,9 +15,10 @@ import java.io.IOException;
 import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Comparator;
+import java.util.TreeMap;
 
-
-
+//SOURCE: https://www.programcreek.com/2013/03/java-sort-map-by-value/
 
 public class REGEX_class {
  
@@ -68,9 +69,6 @@ String addedCharacter;
 String in="";
 i=0;
 String regularexpressioncheck;
-String regularexpressioncheck1;
-String regularexpressioncheck2;
-String regularexpressioncheck3;
 String convert="";
 List<wordInfo> wordMatch = new ArrayList<wordInfo>();
 Map<String, Integer> myMap = new HashMap<String, Integer>();
@@ -122,6 +120,11 @@ switch (mention_option) {
             wordMatch.add(new wordInfo (convert));}
         
              }
+             
+             
+             
+             
+             
              
             case 3:  //mentions
             
@@ -188,19 +191,32 @@ switch (mention_option) {
         
              }
     
-            myMap.put(in,referenceCount);
-             System.out.println("The count for this file is "+ referenceCount);
+              myMap.put(in,referenceCount);
+             System.out.println("The reference count for this file is "+ referenceCount);
              i++;
              
              
                                    }     }
-                            
+                                   printArray(wordMatch);
+                                   
+            
+                Topologicalsort(myMap);             
 
-
+                
 }
 
 
-
+public void printArray(List<wordInfo>matches){
+    
+    System.out.println("--------------");
+    System.out.println("Here is a list of common between all the files: ");
+    for(int n=0; n<matches.size(); n++){
+       if( matches.get(n).getWordCount()>1){
+         System.out.println("--");
+         System.out.println("Word: "+matches.get(n).getWord()+"    Ammount of time it occurs: "+ matches.get(n).getWordCount());
+       }   
+    }
+}
 
 public boolean isInArray(List<wordInfo>match, String name){
    
@@ -252,7 +268,21 @@ public int getIndex(List<wordInfo>match, String name){
     
     
     
-    
+    public void Topologicalsort (Map<String, Integer> map) {
+       
+       //We need to sort the references (files) and make the one with the most go in last
+        //We need to pop or retrieve the the files
+        
+        Comparator<String> comparator = new ValueComparator<String, Integer>(map);
+		TreeMap<String, Integer> result = new TreeMap<String, Integer>(comparator);
+		result.putAll(map);
+ 
+		System.out.println(result);
+        
+        
+        
+        
+   // }
     //Topological sort method
     
     //This needs to return what the highest count of the ^ (references) are in the files
