@@ -17,8 +17,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Comparator;
 import java.util.TreeMap;
+import java.util.Set;
+import java.util.Map.Entry;
+import java.util.Iterator;
+
 
 //SOURCE: https://www.programcreek.com/2013/03/java-sort-map-by-value/
+//SOURCE: https://stackoverflow.com/questions/30470031/java-writing-a-treemap-to-a-text-file
+//Source: https://stackoverflow.com/questions/1053467/how-do-i-save-a-string-to-a-text-file-using-java
 
 public class REGEX_class {
  
@@ -206,7 +212,8 @@ switch (mention_option) {
                                    }     }
                                    printArray(wordMatch);
                                    
-            
+            System.out.println("------------------");
+            System.out.println("Topologically sorting the files......");
                 Topologicalsort(myMap);             
 
                 
@@ -285,34 +292,72 @@ public int getIndex(List<wordInfo>match, String name){
     }
         
         
-        public static TreeMap<String, Integer> sortMapByValue(HashMap<String, Integer> map){
+        public TreeMap<String, Integer> sortMapByValue(HashMap<String, Integer> map){
 		Comparator<String> comparator = new ValueComparator(map);
 		//TreeMap is a map sorted by its keys. 
 		//The comparator is used to sort the TreeMap by keys. 
 		TreeMap<String, Integer> result = new TreeMap<String, Integer>(comparator);
 		result.putAll(map);
+		String resultsString=result.toString();
+		//System.out.println(results);
+		System.out.println("Here's the files topologically sorted. It has also been written to a file called topoSorted.txt. Thanks!");
 		return result;
 	}
+	//Source: https://stackoverflow.com/questions/1053467/how-do-i-save-a-string-to-a-text-file-using-java
+	
+	public void WritetoFile(String resultsInString) {
+	    BufferedWriter writer = null;
+try
+{
+    writer = new BufferedWriter( new FileWriter("topoSorted.txt"));
+    writer.write( resultsInString);
+
+}
+catch ( IOException e)
+{
+}
+finally
+{
+    try
+    {
+        if ( writer != null)
+        writer.close( );
+    }
+    catch ( IOException e)
+    {
+    }
+}
+	    
+	    
+	}
+	
+	
    // }
-    //Topological sort method
+    //HEERRREEE
     
     //This needs to return what the highest count of the ^ (references) are in the files
     //This isn't neccesarily using a graph but it is still sorted topologically
-    
-    
+    //String aggFileName = "agg-"+String.valueOf("06.txt");
+
+// public void mapToFile (TreeMap<String, Integer> map){
+
+// FileWriter fstream = new FileWriter(aggFileName);
+// BufferedWriter out = new BufferedWriter(fstream);
+
+// for (TreeMap.Entry<String, String> entry : sortMap.entrySet()) {
+//      System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue()); //this statement prints out my keys and values
+//      out.write(entry.getKey() + "\t" + entry.getValue());
+//      System.out.println("Done");
+//      out.flush();   // Flush the buffer and write all changes to the disk
+//  }
+
+// out.close();    // Close the file
     
     
 
 
-
+    
 }
-
-
-
-
-
-
-
 
 
 
@@ -332,18 +377,9 @@ class ValueComparator implements Comparator<String>{
 			return 1;
 		}	
 	}
-}
-
-
-
-
-
-
-
-
-
-
-
+	
+}	
+	
 
 
 

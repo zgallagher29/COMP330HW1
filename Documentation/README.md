@@ -7,6 +7,7 @@
 //Note.java: prompts the users to enter a mentions, identifiers, topics, keywords, or reference and returns what is in the file (without regex)
 //wordInfo.java: Does a word count of the different cases
 //ValueComparator: 
+//topoSorted: 
 
 
 
@@ -15,6 +16,7 @@ Sources Read/Watched:
 2) https://www.youtube.com/watch?v=s_PfopWcMwI
 3) https://regexr.com/
 4) https://www.programcreek.com/2013/03/java-sort-map-by-value/ - We used this a lot for our topological sort
+5) https://stackoverflow.com/questions/1053467/how-do-i-save-a-string-to-a-text-file-using-java
 
 
 Functional Requirements:
