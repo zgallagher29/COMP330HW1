@@ -73,10 +73,12 @@ String regularexpressioncheck2;
 String regularexpressioncheck3;
 String convert="";
 List<wordInfo> wordMatch = new ArrayList<wordInfo>();
+Map<String, Integer> myMap = new HashMap<String, Integer>();
 int locationOfMatch=0;
 for(File child : directoryListing){
-in=convertFileToString(directoryListing[i]);
 
+in=convertFileToString(directoryListing[i]);
+int referenceCount=0;
 //String m, m1, m2,m3
 switch (mention_option) {
             
@@ -172,6 +174,9 @@ switch (mention_option) {
              while (m.find()) {
             System.out.println(m.group(0));//modify
             convert=m.group(0).toString();
+            if(convert.contains("^")){
+                referenceCount++;
+            }
             if(isInArray(wordMatch, convert)){
                locationOfMatch= getIndex(wordMatch, convert);
                wordMatch.get(locationOfMatch).addCount();
@@ -183,7 +188,8 @@ switch (mention_option) {
         
              }
     
-             
+            myMap.put(in,referenceCount);
+             System.out.println("The count for this file is "+ referenceCount);
              i++;
              
              
@@ -224,10 +230,6 @@ public int getIndex(List<wordInfo>match, String name){
     
     
 }
-
-
-
-
 
 
 

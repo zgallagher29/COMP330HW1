@@ -2,6 +2,10 @@
 
 //PlANNING.txt contains some planning that we did on differnt dates
 //REGEX_class:
+1) Creates our final document with all the mentions, identifiers, topics, keywords, and references.
+2) Sorts the files topologically based upon references
+//Note.java: prompts the users to enter a mentions, identifiers, topics, keywords, or reference and returns what is in the file (without regex)
+//
 
 Sources Read/Watched: 
 1) https://alvinalexander.com/blog/post/java/how-find-string-simple-regex-pattern-matcher
@@ -19,35 +23,15 @@ Functional Requirements:
 
 
 To run: 
-1) Clone the project into C9 or whichever 
+1) Clone the project into C9 or the IDE of your choice
+2) Open up main.java and build/run it
+3) "What is the name of the folder/directory?" will pop up on the screen
+4) Enter the folder/directory you're looking for
+5) Enter if you are looking for a unique identifiers, reference, person, topic, or keyword
+6) When 'Time for Regex' pops up enter the folder/directory again
+7) A file will be written () with all of the mentions, topics, references, keywords, and identifiers
+8) The files will be returned topologically based upon their references
 
 
 
-
-
-
-java: Note.java, main.java, REGEX_class.java, TopologicalSort_class.java, hashmap_class.java, Files (sconeRecipe.txt, sushi-cookbook)
-
-1) File: Note.Java
-
-This is a class
-//include more info
-
-Methods in Note.Java: 
-
-1) start()
-
-This method reads in the file, asks the user what word they are looking for, and then will store them into a hashmap.
-
-2) method2()
-
-Writes the hashmap to a file.
-
-2) main.java
-
-
-//implements REGEX_class
-
-
-3) REGEX_class.java
 
