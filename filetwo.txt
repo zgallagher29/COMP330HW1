@@ -1,6 +1,0 @@
-Line: 4in the file Files/sushi-cookbook (1).txt=spicy tuna roll
-Line: 6in the file Files/sushi-cookbook (1).txt=dragon roll
-Line: 3in the file Files/sushi-cookbook (1).txt=tiger roll
-Line: 5in the file Files/sushi-cookbook (1).txt=california roll
-Line: 8in the file Files/sushi-cookbook (1).txt=philly roll
-Line: 7in the file Files/sushi-cookbook (1).txt=rainbow roll

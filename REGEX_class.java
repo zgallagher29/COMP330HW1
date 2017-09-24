@@ -22,6 +22,7 @@ import java.util.Map.Entry;
 import java.util.Iterator;
 
 
+
 //SOURCE: https://www.programcreek.com/2013/03/java-sort-map-by-value/
 //SOURCE: https://stackoverflow.com/questions/30470031/java-writing-a-treemap-to-a-text-file
 //Source: https://stackoverflow.com/questions/1053467/how-do-i-save-a-string-to-a-text-file-using-java
@@ -301,61 +302,35 @@ public int getIndex(List<wordInfo>match, String name){
 		String resultsString=result.toString();
 		//System.out.println(results);
 		System.out.println("Here's the files topologically sorted. It has also been written to a file called topoSorted.txt. Thanks!");
+		WritetoFile(resultsString);
 		return result;
 	}
 	//Source: https://stackoverflow.com/questions/1053467/how-do-i-save-a-string-to-a-text-file-using-java
 	
+    
+	
+	
 	public void WritetoFile(String resultsInString) {
-	    BufferedWriter writer = null;
-try
-{
-    writer = new BufferedWriter( new FileWriter("topoSorted.txt"));
-    writer.write( resultsInString);
+    
+       try{
+    File file=new File("topoSorted.txt");
+    FileOutputStream fos=new FileOutputStream(file);
+        PrintWriter pw=new PrintWriter(fos);
+        pw.println("The file name comes first followed by the amount of references it has.");
+      pw.println(resultsInString);
 
-}
-catch ( IOException e)
-{
-}
-finally
-{
-    try
-    {
-        if ( writer != null)
-        writer.close( );
-    }
-    catch ( IOException e)
-    {
-    }
+        pw.flush();
+        pw.close();
+        fos.close();
+    }catch(Exception e){}
+
 }
 	    
 	    
-	}
 	
 	
-   // }
-    //HEERRREEE
-    
-    //This needs to return what the highest count of the ^ (references) are in the files
-    //This isn't neccesarily using a graph but it is still sorted topologically
-    //String aggFileName = "agg-"+String.valueOf("06.txt");
-
-// public void mapToFile (TreeMap<String, Integer> map){
-
-// FileWriter fstream = new FileWriter(aggFileName);
-// BufferedWriter out = new BufferedWriter(fstream);
-
-// for (TreeMap.Entry<String, String> entry : sortMap.entrySet()) {
-//      System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue()); //this statement prints out my keys and values
-//      out.write(entry.getKey() + "\t" + entry.getValue());
-//      System.out.println("Done");
-//      out.flush();   // Flush the buffer and write all changes to the disk
-//  }
-
-// out.close();    // Close the file
-    
-    
-
-
+	
+ 
     
 }
 
